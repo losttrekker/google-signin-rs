@@ -1,32 +1,23 @@
 [package]
-name = "google-signin"
-edition = "2018"
-version = "0.3.1"
-description = "API bindings for Google Sign-In"
 authors = ["Kevin Stenerson <kstenerson@developers.wyyerd.com>"]
+categories = ["api-bindings"]
+description = "API bindings for Google Sign-In"
+documentation = "https://docs.rs/google-signin"
+edition = "2018"
+keywords = ["google", "signin", "oauth", "oauth2", "api"]
 license = "MIT/Apache-2.0"
+name = "google-signin"
 readme = "README.md"
 repository = "https://github.com/wyyerd/google-signin-rs"
-documentation = "https://docs.rs/google-signin"
-keywords = ["google", "signin", "oauth", "oauth2", "api"]
-categories = ["api-bindings"]
-
-[features]
-default = ["with-rustls"]
-with-rustls = ["hyper-rustls"]
-with-openssl = ["hyper-openssl"]
+version = "0.4.0"
 
 [dependencies]
-hyper = "^0.13"
-hyper-rustls = { version = "^0.19", optional = true }
-hyper-openssl = { version = "^0.8", optional = true }
-bytes = "^0.5"
-serde = "^1.0"
-serde_derive = "^1.0"
-serde_json = "^1.0"
-jsonwebtoken = "^7"
+bytes = "^1"
 cache_control = "0.1.0"
+jsonwebtoken = "^7"
+reqwest = { version = "^0.11.4", features = ["json", "rustls-tls"] }
+serde = { version = "^1.0", features = ["derive"] }
 
 [dev-dependencies]
-tokio = { version = "0.2", features = ["full"] }
-futures = "0.3"
+# futures = "^0.3.16"
+tokio = { version = "^1.10.0", features = ["full"] }
